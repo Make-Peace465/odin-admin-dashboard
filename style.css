@@ -1,3 +1,8 @@
+:root {
+    --main-color: #1992d4;
+    --assist-gray: #e2e8f0;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -9,12 +14,17 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 2fr 7fr;
-    grid-template-rows: 2fr 8fr;
+    grid-template-rows: auto 1fr;
 }
 
+/* Sidebar structure */
 .sidebar {
-    background-color: #1992d4;
+    background-color: var(--main-color);
     grid-area: 1 / 1 / 3 / 1;
+}
+
+.sidebar > * {
+    color: white;
 }
 
 .header {
@@ -22,11 +32,7 @@ body {
 }
 
 .content {
-    background-color: #e2e8f0;
-}
-
-.sidebar > * {
-    color: white;
+    background-color: var(--assist-gray);
 }
 
 ul {
@@ -34,13 +40,7 @@ ul {
     padding-left: 0px;
 }
 
-.icon-container {
-    display: grid;
-    grid-template-columns: 30px 1fr;
-    align-items: center;
-    line-height: 30px;
-}
-
+.icon-container,
 li {
     display: grid;
     grid-template-columns: 30px 1fr;
@@ -48,6 +48,81 @@ li {
     line-height: 30px;
 }
 
+
 li > img {
     width: 20px;
 }
+
+/* Header */
+.header {
+    padding: 10px 20px;
+}
+
+/* row 1 */
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 1rem;
+}
+
+#search-area {
+    background-color: var(--assist-gray);
+    width: 20rem;
+    height: 1em;
+    border-radius: 10px;
+}
+
+.user-info {
+    display: flex;
+    gap: 1em;
+    justify-self: end;
+}
+
+/* row 2 */
+.header-row-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.greeting {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 5px;
+    font-weight: 900;
+}
+
+.greeting > img {
+    grid-area: 1 / 1 / 3 / 1;
+    padding-right: 15px;
+}
+
+#greeting-line {
+    font-size: 10px;
+}
+
+.greeting > .user-name::after {
+    content: " (@morgan)"
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.nav-btn > * {
+    border: none;
+    height: 80%;
+    padding: 0.5em 2em;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.7em;
+}
+
